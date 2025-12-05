@@ -1,0 +1,55 @@
+# ✨ LEARNING NOTE: GitHub Actions Workflow
+# This file tells GitHub how to automatically deploy your site
+# whenever you push changes to the main branch.
+
+name: Deploy Portfolio to GitHub Pages
+
+# When does this run? On every push to 'main' branch
+on:
+  push:
+    branches:
+      - main
+
+# Permissions needed to deploy to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Prevent multiple deployments at once
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Job 1: Build the site
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Get your code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Setup GitHub Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      # Step 3: Upload your files as an artifact
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository (your HTML, CSS, JS files)
+          path: '.'
+
+  # Job 2: Deploy to GitHub Pages
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build  # Wait for build job to finish
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+

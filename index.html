@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mounika Bolla | Portfolio</title>
+    
+    <!-- 
+    ✨ LEARNING NOTE: External Fonts
+    Google Fonts gives us beautiful typography. We're using:
+    - Playfair Display: Elegant serif for headings
+    - Raleway: Clean sans-serif for body text
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 
+    ✨ LEARNING NOTE: Navigation
+    The <nav> element tells browsers and screen readers "this is navigation".
+    Using semantic HTML makes your site accessible!
+    -->
+    <nav class="navbar">
+        <a href="#" class="logo">MB Portfolio</a>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">HOME</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#services">EXPERIENCE</a></li>
+            <li><a href="#work">WORK</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <!-- 
+    ✨ LEARNING NOTE: Hero Section
+    The hero is the first thing visitors see. It should:
+    1. Grab attention with visuals
+    2. Clearly state who you are
+    3. Show what you do
+    -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="profile-image">
+                <!-- Replace with your photo! -->
+                <img src="Mine.png" alt="Mounika B">
+            </div>
+            <h1>Hi, I'm <span class="highlight">Mounika Bolla</span></h1>
+            <p class="tagline">Agentic AI Engineer</p>
+            <div class="hero-buttons">
+                <a href="#work" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-outline">Get In Touch</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll Down</span>
+            <div class="mouse"></div>
+        </div>
+    </section>
+
+    <!-- 
+    ✨ LEARNING NOTE: About Section
+    Tell your story! Keep it concise but personal.
+    Use <section> tags to divide major content areas.
+    -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="aboutme.jpeg" alt="About Me">
+                </div>
+                <div class="about-text">
+                    <h3>I Build Intelligent AI Solutions</h3>
+                    <p>
+                        I'm an Agentic AI Engineer passionate about creating data-driven solutions 
+                        and solving real-world problems using artificial intelligence. I specialize in 
+                        building RAG pipelines, LLM-powered applications, and intelligent automation systems.
+                    </p>
+                    <p>
+                        With hands-on expertise in Python, TensorFlow, and modern AI frameworks, 
+                        I turn complex data challenges into scalable, production-ready solutions 
+                        that deliver real business impact.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number" data-target="4" data-suffix="+">0</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-target="20" data-suffix="+">0</span>
+                            <span class="stat-label">Projects Completed</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-target="5" data-suffix="+">0</span>
+                            <span class="stat-label">AI Models Deployed</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn btn-primary">Download Resume</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+    ✨ LEARNING NOTE: Work Experience Section
+    A timeline-style layout showcasing your professional journey.
+    Each job card shows company, role, duration, and key achievements.
+    -->
+    <section id="services" class="experience">
+        <div class="container">
+            <h2 class="section-title">Work Experience</h2>
+            <p class="section-subtitle">My professional journey in AI and Machine Learning</p>
+            
+            <div class="timeline">
+                <!-- Job 1: Current -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="job-header">
+                            <h3>Data Scientist</h3>
+                            <span class="company">JerseySTEM</span>
+                            <span class="duration">Aug 2025 – Present | Remote</span>
+                        </div>
+                        <ul class="job-highlights">
+                            <li>Developed agentic AI pipeline for automated curriculum design, reducing design time by 60%</li>
+                            <li>Built ML models achieving 85% accuracy in evaluating curriculum effectiveness using 500+ student feedback</li>
+                            <li>Created interactive Tableau dashboards with FastAPI backend, boosting workshop engagement by ~10%</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="job-header">
+                            <h3>Graduate Research Assistant</h3>
+                            <span class="company">University of Central Missouri</span>
+                            <span class="duration">Aug 2024 – May 2025 | Lees Summit, MO</span>
+                        </div>
+                        <ul class="job-highlights">
+                            <li>Engineered ECG risk-stratification system using deep learning with 98.84% accuracy and 0.999 AUC</li>
+                            <li>Designed CNN, LSTM, and attention-based architectures with SMOTE augmentation pipelines</li>
+                            <li>Developed clinical prototype with real-time ECG visualization using Streamlit</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="job-header">
+                            <h3>AI Product Engineer Intern</h3>
+                            <span class="company">Attacked.ai</span>
+                            <span class="duration">May 2024 – Dec 2024 | London, UK (Remote)</span>
+                        </div>
+                        <ul class="job-highlights">
+                            <li>Built agentic AI pipeline for real-time cyber-attack intelligence used by enterprise security teams</li>
+                            <li>Developed voice-interactive simulation platform using LiveKit + Django + OpenAI APIs</li>
+                            <li>Created NLP classification models (BERT) for 50K+ cybersecurity reports, improving accuracy by 14%</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Job 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="job-header">
+                            <h3>Machine Learning Engineer</h3>
+                            <span class="company">ESAB India Pvt Ltd</span>
+                            <span class="duration">May 2022 – Jul 2023 | Chennai, India</span>
+                        </div>
+                        <ul class="job-highlights">
+                            <li>Developed computer vision system using MobileNetV3 achieving 95%+ accuracy, reducing manual inspection by 70%</li>
+                            <li>Built predictive maintenance "Life Meter" using TCN + attention, reducing equipment downtime by 40%</li>
+                            <li>Designed scalable ML pipelines processing 10K+ daily transactions in production</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Job 5 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="job-header">
+                            <h3>Research Intern</h3>
+                            <span class="company">IIITDM Kancheepuram</span>
+                            <span class="duration">Nov 2021 – May 2022 | Chennai, India</span>
+                        </div>
+                        <ul class="job-highlights">
+                            <li>Engineered fundus image quality assessment model using ResNet50/EfficientNetB0 with 86.2% accuracy</li>
+                            <li>Presented research at BMT 2023 Conference</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Job 6 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="job-header">
+                            <h3>AI Development Intern</h3>
+                            <span class="company">Veyyil Robotics Private Limited</span>
+                            <span class="duration">Aug 2021 – Oct 2021 | Chennai, India</span>
+                        </div>
+                        <ul class="job-highlights">
+                            <li>Leveraged YOLO algorithm for automated fault detection, reducing human intervention by 40%</li>
+                            <li>Optimized detection precision by 25% through comparative analysis of YOLO versions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+    ✨ LEARNING NOTE: Skills Section
+    Visual representation of skills helps recruiters quickly assess your abilities.
+    -->
+    <section class="skills">
+        <div class="container">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>ML & Deep Learning</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">Keras</span>
+                        <span class="skill-tag">XGBoost</span>
+                        <span class="skill-tag">CNN</span>
+                        <span class="skill-tag">LSTM</span>
+                        <span class="skill-tag">Transformers</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>LLMs & AI Agents</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">LangChain</span>
+                        <span class="skill-tag">RAG</span>
+                        <span class="skill-tag">OpenAI API</span>
+                        <span class="skill-tag">Gemini API</span>
+                        <span class="skill-tag">LlamaIndex</span>
+                        <span class="skill-tag">Agentic AI</span>
+                        <span class="skill-tag">Prompt Engineering</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>NLP & Computer Vision</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Hugging Face</span>
+                        <span class="skill-tag">BERT</span>
+                        <span class="skill-tag">spaCy</span>
+                        <span class="skill-tag">OpenCV</span>
+                        <span class="skill-tag">YOLO</span>
+                        <span class="skill-tag">ResNet</span>
+                        <span class="skill-tag">EfficientNet</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Cloud & MLOps</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Azure</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">MLflow</span>
+                        <span class="skill-tag">CI/CD</span>
+                        <span class="skill-tag">Kubernetes</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Data & Databases</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">FAISS</span>
+                        <span class="skill-tag">Pinecone</span>
+                        <span class="skill-tag">Redis</span>
+                        <span class="skill-tag">Spark</span>
+                        <span class="skill-tag">Tableau</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Languages & Frameworks</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">FastAPI</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">Django</span>
+                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">Streamlit</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+    ✨ LEARNING NOTE: Certifications Section
+    Showcasing professional certifications and credentials.
+    Adds credibility and shows continuous learning.
+    -->
+    <section class="certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <div class="cert-icon">🏆</div>
+                    <div class="cert-content">
+                        <h3>AWS Certified AI Practitioner</h3>
+                        <p class="cert-issuer">Amazon Web Services</p>
+                        <p class="cert-date">November 2025</p>
+                        <a href="https://www.credly.com/badges/7965ce42-51c4-4563-a1ee-941ef821e408/linked_in_profile" class="cert-link">View Credential →</a>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">📊</div>
+                    <div class="cert-content">
+                        <h3>GenAI Powered Data Analytics Job Simulation</h3>
+                        <p class="cert-issuer">Tata iQ</p>
+                        <p class="cert-date">2025</p>
+                        <p class="cert-desc">Job simulation: EDA with GenAI, predictive modeling for customer risk assessment, AI-driven collections strategy</p>
+                        <a href="https://www.theforage.com/completion-certificates/ifobHAoMjQs9s6bKS/gMTdCXwDdLYoXZ3wG_ifobHAoMjQs9s6bKS_68fcec040aa36cea4b494ab8_1763504103949_completion_certificate.pdf" class="cert-link">View Credential →</a>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">📚</div>
+                    <div class="cert-content">
+                        <h3>Introduction to Big Data with Spark and Hadoop</h3>
+                        <p class="cert-issuer">Coursera</p>
+                        <p class="cert-date">September 2024</p>
+                        <a href="https://www.coursera.org/account/accomplishments/verify/AJ0DGRQ4X23B" class="cert-link">View Credential →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+    ✨ LEARNING NOTE: Publications Section
+    Academic publications add credibility for research-focused roles.
+    Link to the actual paper for verification.
+    -->
+    <section class="publications">
+        <div class="container">
+            <h2 class="section-title">Publications</h2>
+            <div class="publication-card">
+                <div class="pub-icon">📄</div>
+                <div class="pub-content">
+                    <h3>Deep Learning Based Quality Prediction of Retinal Fundus Images</h3>
+                    <p class="pub-venue">BMT 2023 Conference • September 2023</p>
+                    <p class="pub-desc">
+                        Peer-reviewed research on medical image quality assessment using deep learning. 
+                        Developed models to predict diagnostic quality of retinal fundus images for improved healthcare outcomes.
+                    </p>
+                    <a href="https://degruyter.com/document/doi/10.1515/cdbme-2023-1177/html" target="_blank" class="pub-link">
+                        Read Publication →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+    ✨ LEARNING NOTE: Portfolio/Projects Section
+    Showcasing real AI projects with detailed descriptions.
+    Each card highlights the tech stack and key achievements.
+    -->
+    <section id="work" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">AI solutions I've built from concept to production</p>
+            
+            <div class="projects-grid">
+                <!-- Project 1: Violence Surveillance -->
+                <div class="project-card">
+                    <div class="project-icon">🎥</div>
+                    <div class="project-year">2025</div>
+                    <h3>Intelligent Violence Surveillance System</h3>
+                    <div class="project-tech">
+                        <span>FastAPI</span>
+                        <span>TensorFlow</span>
+                        <span>Azure</span>
+                        <span>Next.js</span>
+                        <span>Gemini API</span>
+                    </div>
+                    <ul class="project-highlights">
+                        <li>Full-stack AI violence detection with MobileNetV3Small CNN achieving 88.8% accuracy</li>
+                        <li>Intelligent three-tier frame extraction reducing API costs by 80-90%</li>
+                        <li>Production monitoring with OpenTelemetry integration, sub-50ms frame inference</li>
+                    </ul>
+                    <a href="#" class="project-link">View Project →</a>
+                </div>
+
+                <!-- Project 2: AlignAI -->
+                <div class="project-card">
+                    <div class="project-icon">📄</div>
+                    <div class="project-year">2025</div>
+                    <h3>AlignAI - Resume Tailoring System</h3>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>LangChain</span>
+                        <span>FAISS</span>
+                        <span>Gemini API</span>
+                        <span>Flask</span>
+                        <span>PostgreSQL</span>
+                    </div>
+                    <ul class="project-highlights">
+                        <li>RAG-powered resume optimization with 95%+ PDF/DOCX processing accuracy</li>
+                        <li>Multi-agent system with context-aware chat that learns from user feedback</li>
+                        <li>Full-stack app with secure auth, real-time chat, and resume library management</li>
+                    </ul>
+                    <a href="https://github.com/Mounika-Bolla/alignai-resume-tailoring" class="project-link">View Project →</a>
+                </div>
+
+                <!-- Project 3: Financial Market Map -->
+                <div class="project-card">
+                    <div class="project-icon">🌍</div>
+                    <div class="project-year">2025</div>
+                    <h3>Financial Market Map with AI Agents</h3>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>LangChain</span>
+                        <span>FinBERT</span>
+                        <span>Gemini API</span>
+                    </div>
+                    <ul class="project-highlights">
+                        <li>Autonomous multi-agent system analyzing 1K+ daily financial news articles</li>
+                        <li>Interactive global map visualizing news impact on international markets</li>
+                        <li>Fine-tuned FinBERT achieving 87% sentiment classification accuracy</li>
+                    </ul>
+                    <a href="https://github.com/Mounika-Bolla/market-map-frontend" class="project-link">View Project →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+    ✨ LEARNING NOTE: Contact Section
+    Make it EASY for people to reach you. Include multiple contact methods.
+    The <form> element handles user input.
+    -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Have a project in mind? Let's work together!</p>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <div>
+                            <h4>Email</h4>
+                            <p>mounikabollav@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Gainesville, Florida</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">💼</span>
+                        <div>
+                            <h4>LinkedIn</h4>
+                            <p>Mounika Bolla</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/Mounika-Bolla" target="_blank" class="social-link">GitHub</a>
+                        <a href="https://www.linkedin.com/in/mounika-bolla-47387a212/" target="_blank" class="social-link">LinkedIn</a>
+                        <a href="https://instagram.com/moni_acoustic" target="_blank" class="social-link">Instagram</a>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Subject">
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+    ✨ LEARNING NOTE: Footer
+    Always include copyright and perhaps links. 
+    Keep it simple but professional.
+    -->
+    <footer class="footer">
+        <p>&copy; 2025 Mounika B. All rights reserved.</p>
+        <p>Built with ❤️ and lots of coffee</p>
+    </footer>
+
+    <!-- 
+    ✨ LEARNING NOTE: JavaScript
+    Adds interactivity! We'll use this for smooth scrolling
+    and navigation effects.
+    -->
+    <script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,1079 @@
+/* 
+ * ✨ LEARNING NOTE: CSS Variables (Custom Properties)
+ * Define colors once, use everywhere! Change the whole theme by editing these.
+ * Variables make your CSS maintainable and consistent.
+ */
+:root {
+    --color-bg-dark: #0a0a0a;
+    --color-bg-section: #111111;
+    --color-bg-card: #1a1a1a;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #b0b0b0;
+    --color-text-muted: #666666;
+    --color-accent: #c9a86c;  /* Warm gold - elegant touch */
+    --color-accent-hover: #dab87c;
+    --color-border: #2a2a2a;
+    
+    /* Typography */
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Raleway', 'Segoe UI', sans-serif;
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 6rem;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+/* 
+ * ✨ LEARNING NOTE: CSS Reset
+ * Browsers have default styles. We reset them for consistency.
+ */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Smooth scrolling when clicking nav links! */
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-primary);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* 
+ * ✨ LEARNING NOTE: Container
+ * A reusable class that centers content and limits width.
+ * This keeps text readable on large screens.
+ */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* ===================================
+   NAVIGATION
+   =================================== */
+/* 
+ * ✨ LEARNING NOTE: Fixed Navigation
+ * position: fixed keeps nav visible while scrolling.
+ * z-index ensures it stays on top of other content.
+ */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: transparent;
+    z-index: 1000;
+    transition: background var(--transition-normal);
+}
+
+.navbar.scrolled {
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-md);
+}
+
+.nav-links a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    padding: var(--spacing-xs) 0;
+    position: relative;
+    transition: color var(--transition-fast);
+}
+
+/* 
+ * ✨ LEARNING NOTE: Underline Animation
+ * ::after creates a pseudo-element for the animated underline.
+ * It starts at width: 0 and expands on hover.
+ */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-accent);
+    transition: width var(--transition-fast);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--color-text-primary);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* ===================================
+   HERO SECTION
+   =================================== */
+/* 
+ * ✨ LEARNING NOTE: Full-Screen Hero
+ * 100vh = 100% of viewport height
+ * This creates that dramatic full-screen first impression.
+ */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    /* Stunning mountain background like Imozar */
+    background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920') center/cover no-repeat;
+}
+
+/* 
+ * ✨ LEARNING NOTE: Overlay Effect
+ * A semi-transparent overlay darkens the image so text is readable.
+ * position: absolute with inset: 0 covers the entire parent.
+ */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0.7) 100%
+    );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    padding: var(--spacing-md);
+}
+
+/* 
+ * ✨ LEARNING NOTE: Profile Image Circle
+ * border-radius: 50% makes any element circular.
+ * We add a border for that elegant frame effect.
+ */
+.profile-image {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto var(--spacing-md);
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    padding: 5px;
+    overflow: hidden;
+    animation: fadeInDown 1s ease;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 4rem); /* Responsive font size! */
+    font-weight: 400;
+    margin-bottom: var(--spacing-sm);
+    animation: fadeInUp 1s ease 0.2s both;
+}
+
+.highlight {
+    color: var(--color-accent);
+    font-style: italic;
+}
+
+.tagline {
+    font-size: 1rem;
+    letter-spacing: 4px;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-md);
+    animation: fadeInUp 1s ease 0.4s both;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeInUp 1s ease 0.6s both;
+}
+
+/* 
+ * ✨ LEARNING NOTE: Scroll Indicator
+ * A visual cue that tells users to scroll down.
+ * Small details like this improve UX!
+ */
+.scroll-indicator {
+    position: absolute;
+    bottom: var(--spacing-md);
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    animation: fadeInUp 1s ease 1s both;
+}
+
+.scroll-indicator span {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: var(--color-text-muted);
+    display: block;
+    margin-bottom: var(--spacing-xs);
+}
+
+.mouse {
+    width: 25px;
+    height: 40px;
+    border: 2px solid var(--color-text-muted);
+    border-radius: 15px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.mouse::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 8px;
+    background: var(--color-accent);
+    border-radius: 2px;
+    animation: scroll 2s infinite;
+}
+
+/* ===================================
+   BUTTONS
+   =================================== */
+/* 
+ * ✨ LEARNING NOTE: Reusable Button Styles
+ * Create base styles, then variations (primary, outline).
+ * This is the DRY principle: Don't Repeat Yourself!
+ */
+.btn {
+    display: inline-block;
+    padding: 0.875rem 2rem;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.btn-primary {
+    background: var(--color-accent);
+    color: var(--color-bg-dark);
+}
+
+.btn-primary:hover {
+    background: var(--color-accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(201, 168, 108, 0.3);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-text-secondary);
+}
+
+.btn-outline:hover {
+    background: var(--color-text-primary);
+    color: var(--color-bg-dark);
+}
+
+.btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+/* ===================================
+   SECTION STYLES
+   =================================== */
+section {
+    padding: var(--spacing-xl) 0;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3rem);
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: var(--color-accent);
+    margin: var(--spacing-sm) auto 0;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto var(--spacing-lg);
+}
+
+/* ===================================
+   ABOUT SECTION
+   =================================== */
+.about {
+    background: var(--color-bg-section);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+.about-image {
+    position: relative;
+}
+
+.about-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    filter: grayscale(20%);
+}
+
+/* 
+ * ✨ LEARNING NOTE: Decorative Border
+ * Using ::before to create a frame effect behind the image.
+ * This adds visual interest!
+ */
+.about-image::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: -20px;
+    bottom: -20px;
+    border: 2px solid var(--color-accent);
+    z-index: -1;
+}
+
+.about-text h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-accent);
+}
+
+.about-text p {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* 
+ * ✨ LEARNING NOTE: Flexbox for Stats
+ * display: flex with gap creates evenly spaced items.
+ * Perfect for this stats layout!
+ */
+.about-stats {
+    display: flex;
+    gap: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+    padding: var(--spacing-md) 0;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--color-accent);
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+}
+
+/* ===================================
+   SERVICES SECTION
+   =================================== */
+/* 
+ * ✨ LEARNING NOTE: CSS Grid
+ * Grid is perfect for card layouts!
+ * repeat(auto-fit, minmax(280px, 1fr)) makes it responsive automatically.
+ */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.service-card {
+    background: var(--color-bg-card);
+    padding: var(--spacing-md);
+    text-align: center;
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-normal);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--color-accent);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.service-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.service-card p {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+}
+
+/* ===================================
+   WORK EXPERIENCE SECTION
+   =================================== */
+/* 
+ * ✨ LEARNING NOTE: Timeline Layout
+ * A vertical timeline uses a pseudo-element for the line
+ * and positioned dots for each milestone.
+ */
+.experience {
+    background: var(--color-bg-dark);
+}
+
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-left: 30px;
+}
+
+/* The vertical line */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--color-border);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: var(--spacing-md);
+    padding-left: var(--spacing-md);
+}
+
+/* The dot on the timeline */
+.timeline-dot {
+    position: absolute;
+    left: -38px;
+    top: 5px;
+    width: 14px;
+    height: 14px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    border: 3px solid var(--color-bg-dark);
+}
+
+.timeline-item:first-child .timeline-dot {
+    background: #4ade80; /* Green for current job */
+    box-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
+}
+
+.timeline-content {
+    background: var(--color-bg-card);
+    padding: var(--spacing-md);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-accent);
+    transition: all var(--transition-normal);
+}
+
+.timeline-content:hover {
+    border-left-color: var(--color-accent-hover);
+    transform: translateX(5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.job-header {
+    margin-bottom: var(--spacing-sm);
+}
+
+.job-header h3 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: var(--color-text-primary);
+    margin-bottom: 4px;
+}
+
+.job-header .company {
+    display: block;
+    color: var(--color-accent);
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+.job-header .duration {
+    display: block;
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+}
+
+.job-highlights {
+    list-style: none;
+    padding: 0;
+}
+
+.job-highlights li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.job-highlights li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+}
+
+/* ===================================
+   SKILLS SECTION
+   =================================== */
+.skills {
+    background: var(--color-bg-section);
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.skill-category {
+    background: var(--color-bg-card);
+    padding: var(--spacing-md);
+    border: 1px solid var(--color-border);
+}
+
+.skill-category h3 {
+    font-family: var(--font-heading);
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-sm);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* 
+ * ✨ LEARNING NOTE: Flexbox Wrap
+ * flex-wrap: wrap lets tags flow to next line when needed.
+ */
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+}
+
+.skill-tag {
+    background: var(--color-bg-dark);
+    color: var(--color-text-secondary);
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-fast);
+}
+
+.skill-tag:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}
+
+/* ===================================
+   CERTIFICATIONS SECTION
+   =================================== */
+.certifications {
+    background: var(--color-bg-dark);
+}
+
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.cert-card {
+    display: flex;
+    gap: var(--spacing-sm);
+    background: var(--color-bg-card);
+    padding: var(--spacing-md);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-accent);
+    transition: all var(--transition-normal);
+}
+
+.cert-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    border-left-color: var(--color-accent-hover);
+}
+
+.cert-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.cert-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--color-text-primary);
+    margin-bottom: 4px;
+}
+
+.cert-issuer {
+    color: var(--color-accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 2px;
+}
+
+.cert-date {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+}
+
+.cert-desc {
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+.cert-link {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color var(--transition-fast);
+}
+
+.cert-link:hover {
+    color: var(--color-accent-hover);
+}
+
+/* ===================================
+   PUBLICATIONS SECTION
+   =================================== */
+.publications {
+    background: var(--color-bg-section);
+}
+
+.publication-card {
+    display: flex;
+    gap: var(--spacing-md);
+    background: var(--color-bg-card);
+    padding: var(--spacing-lg);
+    border: 1px solid var(--color-border);
+    max-width: 800px;
+    margin: 0 auto;
+    transition: all var(--transition-normal);
+}
+
+.publication-card:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.pub-icon {
+    font-size: 3rem;
+    flex-shrink: 0;
+}
+
+.pub-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.3;
+}
+
+.pub-venue {
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+}
+
+.pub-desc {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-sm);
+}
+
+.pub-link {
+    display: inline-block;
+    color: var(--color-bg-dark);
+    background: var(--color-accent);
+    padding: 0.6rem 1.2rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all var(--transition-fast);
+}
+
+.pub-link:hover {
+    background: var(--color-accent-hover);
+    transform: translateY(-2px);
+}
+
+/* ===================================
+   PROJECTS SECTION
+   =================================== */
+/* 
+ * ✨ LEARNING NOTE: Project Cards
+ * Detailed cards showcasing real projects with tech stacks
+ * and key achievements in a visually appealing layout.
+ */
+.portfolio {
+    background: var(--color-bg-section);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.project-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    padding: var(--spacing-md);
+    position: relative;
+    transition: all var(--transition-normal);
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--color-accent);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.project-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.project-year {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    background: var(--color-accent);
+    color: var(--color-bg-dark);
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.project-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text-primary);
+    line-height: 1.3;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.project-tech span {
+    background: var(--color-bg-dark);
+    color: var(--color-accent);
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    border: 1px solid var(--color-border);
+}
+
+.project-highlights {
+    list-style: none;
+    padding: 0;
+    margin-bottom: var(--spacing-sm);
+}
+
+.project-highlights li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 8px;
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.project-highlights li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+}
+
+.project-link {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color var(--transition-fast);
+}
+
+.project-link:hover {
+    color: var(--color-accent-hover);
+}
+
+/* ===================================
+   CONTACT SECTION
+   =================================== */
+.contact {
+    background: var(--color-bg-section);
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--spacing-lg);
+}
+
+.contact-item {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.contact-icon {
+    font-size: 1.5rem;
+}
+
+.contact-item h4 {
+    font-family: var(--font-heading);
+    color: var(--color-accent);
+    margin-bottom: 4px;
+}
+
+.contact-item p {
+    color: var(--color-text-secondary);
+}
+
+.social-links {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+.social-link {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-fast);
+}
+
+.social-link:hover {
+    background: var(--color-accent);
+    color: var(--color-bg-dark);
+    border-color: var(--color-accent);
+}
+
+/* 
+ * ✨ LEARNING NOTE: Form Styling
+ * Input styling with focus states improves UX.
+ * :focus shows users where they're typing.
+ */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: border-color var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--color-text-muted);
+}
+
+/* ===================================
+   FOOTER
+   =================================== */
+.footer {
+    text-align: center;
+    padding: var(--spacing-md);
+    border-top: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+.footer p:first-child {
+    margin-bottom: var(--spacing-xs);
+}
+
+/* ===================================
+   ANIMATIONS
+   =================================== */
+/* 
+ * ✨ LEARNING NOTE: Keyframe Animations
+ * @keyframes defines the animation steps.
+ * animation property applies it to elements.
+ */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scroll {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(-50%) translateY(10px);
+        opacity: 0.5;
+    }
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+/* 
+ * ✨ LEARNING NOTE: Media Queries
+ * These rules apply only on smaller screens.
+ * This is what makes your site "responsive"!
+ */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* We'd add a hamburger menu in a full build */
+    }
+    
+    .about-content,
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-image::before {
+        display: none;
+    }
+    
+    .about-stats {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
